@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Jogo da Forca</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/hangman.css">
+    <link rel="stylesheet" href="css/colors.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header> <a href="https://jogo-da-forca-web.test"> <img class="logo" src="assets/logo.svg" alt="Logo"> </a> </header>
+    <main class="game">
+        <canvas id="hangman" height="300" width="500"></canvas>
+        <div class="letter-container">
+            <span class="letter">a</span>
+            <span class="letter">l</span>
+            <div class="stripe"></div>
+            <div class="stripe"></div>
+            <div class="stripe"></div>
+            <div class="stripe"></div>
+            <div class="stripe"></div>
+            <div class="stripe"></div>
+            <div class="stripe"></div>
+            <div class="stripe"></div>
+            <div class="stripe"></div>
+            <div class="stripe"></div>
+            <div class="stripe"></div>
+            <span class="letter">a</span>
+        </div>
+        <div class="keyboard">
+            <div>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+            </div>
+            <div>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+            </div>
+            <div>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+                <button class="key">a</button>
+            </div>
+        </div>
+        <div class="button-container">
+            <a class="btn btn-primary" href="hangman.html">Novo jogo</a>
+            <a class="btn btn-secondary" href="index.html">Desistir</a>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,74 @@
+.game {
+    height: 90%;
+    width: 100%;
+    padding: 1.5rem 1.5rem;
+    display: flex;
+    flex-flow: nowrap column;
+    justify-content: start;
+    align-items: center;
+}
+
+.letter-container {
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-top: 4rem;
+}
+
+.stripe {
+    flex: 0 0 auto;
+    height: 5rem;
+    width: 4rem;
+    border-bottom: 0.5rem solid var(--primary);
+}
+
+.letter {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    height: 5rem;
+    width: 4rem;
+    font-size: 5rem;
+    color: var(--primary);
+    font-weight: bolder;
+}
+
+.keyboard {
+    margin-top: 5rem;
+    display: flex;
+    width: 100%;
+    flex-flow: nowrap column;
+    gap: 1.5rem 0;
+    padding: 1.5rem;
+}
+
+.keyboard div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+    flex: 1 1 auto;
+}
+
+.key {
+    /* flex: 1 1 auto; */
+    height: 5rem;
+    width: 9rem;
+    border: 0.1rem solid var(--primary);
+    border-radius: 5px;
+}
+
+/* .game .button-container { margin: auto 0; } */
+
+.game .button-container {
+    width: 100%;
+    display: flex;
+    flex-flow: nowrap column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    margin: auto 0;
+}
