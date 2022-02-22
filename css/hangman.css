@@ -1,11 +1,20 @@
 .game {
-    height: 90%;
+    min-height: 90vh;
     width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
     padding: 1.5rem 1.5rem;
     display: flex;
     flex-flow: nowrap column;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
+}
+
+#hangman {
+    border: solid 1.5px var(--primary);  
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 4 / 3;
 }
 
 .letter-container {
@@ -14,7 +23,7 @@
     justify-content: center;
     align-items: flex-end;
     gap: 1rem;
-    margin-top: 4rem;
+    padding: 1rem 0;
 }
 
 .stripe {
@@ -36,11 +45,11 @@
 }
 
 .keyboard {
-    margin-top: 5rem;
+    /* margin-top: 5rem; */
     display: flex;
     width: 100%;
     flex-flow: nowrap column;
-    gap: 1.5rem 0;
+    gap: 10px 0;
     padding: 1.5rem;
 }
 
@@ -48,27 +57,39 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    gap: 1rem;
+    gap: 5px;
     flex: 1 1 auto;
 }
 
 .key {
     /* flex: 1 1 auto; */
-    height: 5rem;
-    width: 9rem;
+    height: 4rem;
+    width: 7rem;
     border: 0.1rem solid var(--primary);
     border-radius: 5px;
 }
 
-/* .game .button-container { margin: auto 0; } */
-
 .game .button-container {
-    width: 100%;
     display: flex;
+    width: 100%;
+    max-width: 1000px;
     flex-flow: nowrap column;
     justify-content: center;
     align-items: stretch;
     gap: 1.5rem;
     padding: 1.5rem;
-    margin: auto 0;
+}
+
+@media (min-width: 768px) {
+    html { font-size: 65%; }
+
+    .game .button-container {
+        flex-flow: nowrap row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .game .btn {
+        flex: 1 1 auto;
+    }
 }
