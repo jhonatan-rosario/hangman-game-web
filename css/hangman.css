@@ -10,11 +10,12 @@
     align-items: center;
 }
 
-#hangman {
-    border: solid 1.5px var(--primary);  
+#canvas {
+    /* border: solid 1.5px var(--primary); */
+    height: auto;
     width: 100%;
-    max-width: 500px;
-    aspect-ratio: 4 / 3;
+    max-width: 300px;
+    /* aspect-ratio: 4 / 3; */
 }
 
 .letter-container {
@@ -67,6 +68,7 @@
     width: 7rem;
     border: 0.1rem solid var(--primary);
     border-radius: 5px;
+    font-size: 2rem;
 }
 
 .game .button-container {

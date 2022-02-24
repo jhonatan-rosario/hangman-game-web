@@ -64,7 +64,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 6.5rem;
+    height: 6rem;
     font-size: 1.6rem;
     border-radius: 2rem;
 }
@@ -74,9 +74,20 @@ header {
     color: var(--text-default); 
 }
 
+.btn-primary:hover { 
+    background-color: var(--primary-hover);
+    color: var(--text-default); 
+}
+
 .btn-secondary {
     background-color: var(--background);
     color: var(--primary);
+    border: solid 1.5px var(--primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary);
+    color: var(--text-default);
     border: solid 1.5px var(--primary);
 }
 
