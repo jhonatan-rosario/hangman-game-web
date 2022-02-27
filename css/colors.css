@@ -1,0 +1,10 @@
+:root {
+    --background: #F3F5FC;
+    --surface: #FFFFFF;
+    --primary: #0A3871;
+    --primary-hover: #072B61;
+    --text-secondary: #495057;
+    --text-default: #FFFFFF;
+    --correct: #00FF00;
+    --wrong: #FF0000;
+}

@@ -1,0 +1,94 @@
+.game {
+    min-height: 90vh;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem;
+    display: flex;
+    flex-flow: nowrap column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#canvas {
+    height: auto;
+    width: 90%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+}
+
+.letter-container {
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.stripe {
+    flex: 0 0 auto;
+    height: 5rem;
+    width: 4rem;
+    border-bottom: 0.5rem solid var(--primary);
+}
+
+.letter {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    height: 5rem;
+    width: 4rem;
+    font-size: 5rem;
+    color: var(--primary);
+    font-weight: bolder;
+}
+
+.keyboard {
+    display: flex;
+    width: 100%;
+    flex-flow: nowrap column;
+    gap: 10px 0;
+    padding: 1.5rem;
+}
+
+.keyboard div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 5px;
+    flex: 1 1 auto;
+}
+
+.key {
+    height: 4rem;
+    width: 7rem;
+    border: 0.1rem solid var(--primary);
+    border-radius: 5px;
+    font-size: 2rem;
+}
+
+.game .button-container {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    flex-flow: nowrap column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    html { font-size: 65%; }
+
+    .game .button-container {
+        flex-flow: nowrap row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .game .btn {
+        flex: 1 1 auto;
+    }
+}
