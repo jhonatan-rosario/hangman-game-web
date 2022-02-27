@@ -11,11 +11,10 @@
 }
 
 #canvas {
-    /* border: solid 1.5px var(--primary); */
     height: auto;
-    width: 100%;
+    width: 90%;
     max-width: 300px;
-    /* aspect-ratio: 4 / 3; */
+    aspect-ratio: 1 / 1;
 }
 
 .letter-container {
@@ -46,7 +45,6 @@
 }
 
 .keyboard {
-    /* margin-top: 5rem; */
     display: flex;
     width: 100%;
     flex-flow: nowrap column;
@@ -63,7 +61,6 @@
 }
 
 .key {
-    /* flex: 1 1 auto; */
     height: 4rem;
     width: 7rem;
     border: 0.1rem solid var(--primary);
