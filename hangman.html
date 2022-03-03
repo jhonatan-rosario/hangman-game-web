@@ -6,8 +6,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- CSS -->
+    <!-- ICON -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/hangman.css">
     <link rel="stylesheet" href="css/colors.css">
@@ -19,28 +25,16 @@
     <script src="js/game.js" type="module" defer></script>
 </head>
 <body>
-    <header> <a href="https://jogo-da-forca-web.test"> <img class="logo" src="assets/logo.svg" alt="Logo"> </a> </header>
+    <header>
+        <a href="https://jogo-da-forca-web.test"> <img class="logo" src="assets/logo.svg" alt="Logo"></a> 
+    </header>
     <main class="game">
         <canvas id="canvas" height="720" width="720"></canvas>
-        <div class="letter-container">
-            <span class="letter">a</span>
-            <span class="letter">l</span>
-            <div class="stripe"></div>
-            <div class="stripe"></div>
-            <div class="stripe"></div>
-            <div class="stripe"></div>
-            <div class="stripe"></div>
-            <div class="stripe"></div>
-            <div class="stripe"></div>
-            <div class="stripe"></div>
-            <div class="stripe"></div>
-            <div class="stripe"></div>
-            <div class="stripe"></div>
-            <span class="letter">a</span>
+        <div id="letterContainer" class="letter-container">
         </div>
         <div class="keyboard">
             <div>
-                <button class="key" value="a">q</button>
+                <button class="key">q</button>
                 <button class="key">w</button>
                 <button class="key">e</button>
                 <button class="key">r</button>
@@ -61,7 +55,6 @@
                 <button class="key">j</button>
                 <button class="key">k</button>
                 <button class="key">l</button>
-                <button class="key">ç</button>
             </div>
             <div>
                 <button class="key">z</button>
@@ -74,7 +67,7 @@
             </div>
         </div>
         <div class="button-container">
-            <a class="btn btn-primary" href="hangman.html">Novo jogo</a>
+            <button id="newGame" class="btn btn-primary">Novo jogo</button>
             <a class="btn btn-secondary" href="index.html">Desistir</a>
         </div>
     </main>

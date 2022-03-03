@@ -1,4 +1,9 @@
 import Hangman from './Hangman.js';
 
-const hangman = new Hangman();
-hangman.start();
+(function() {
+    const hangman = new Hangman();
+    const newGameButton = document.getElementById('newGame');
+    
+    hangman.start();
+    newGameButton.onclick = () => hangman.newGame();
+})();

@@ -1,10 +1,162 @@
 import Screen from './Screen.js';
 import Pen from './Pen.js';
+import Keyboard from './Keyboard.js';
+import data from '../db/data.js';
 
-export default function Hangman() {
+export default class Hangman {
+    #category
+    #word;
+    #stripes;
+    #hit;
+    #error;
+    #screen = new Screen('canvas', 1000);
+    #pen = new Pen(this.#screen, { color: '#0A3871'});
+    #categoriesAndWords = JSON.parse(data);
 
-    this.start = () => {
-        const pen = new Pen(new Screen('canvas', 1000), { color: '#0A3871'});
-        pen.drawGibbet();
+    #randomItem(arr) {
+        const number = Math.floor(Math.random() * arr.length);
+        return arr[number];
+    }
+
+    #randomCategoryAndWord(obj) {
+        const category = this.#randomItem(Object.keys(obj));
+        const word = this.#randomItem(obj[category]);
+        return {category, word};
+    }
+
+    #createElement(tagName, className) {
+        const element = document.createElement(tagName);
+        element.classList.add(className);
+        return element;
+    }
+
+    #createStripeElement(amount) {
+        const arr = Array.of(...(new Array(amount)));
+        
+        arr.forEach((elem, index, arr) => {
+            arr[index] = this.#createElement('span', 'stripe');
+        });
+
+        return arr;
+    }
+
+    #addStripeOnScreen(word) {
+        const letterContainer = document.getElementById('letterContainer');
+        const stripes = this.#createStripeElement(word.length);
+        
+        letterContainer.innerHTML = '';
+        stripes.forEach(elem => {
+            this.#stripes.push(letterContainer.appendChild(elem));
+        });
+    }
+
+    #youWin() {
+        Keyboard.disableAllButtons();
+        console.log('You Win');
+    }
+
+    #gameOver() {
+        Keyboard.disableAllButtons();
+        console.log('Game Over');
+    }
+
+    #showLetter(letter, index) {
+        this.#stripes[index].classList.remove('stripe');
+        this.#stripes[index].classList.add('letter');
+        this.#stripes[index].textContent = letter;
+    }
+
+    #correctLetter(letterAndIndex) {
+        letterAndIndex.forEach(item => {
+            const letter = item[0];
+            const index = item[1];
+
+            this.#showLetter(letter, index);
+            this.#hit++;
+        })
+
+        if(this.#hit === this.#word.length) this.#youWin();
+    }
+
+    #wrongLetter() {
+        this.#error++;
+
+        switch (this.#error) {
+            case 1:
+                this.#pen.drawHead();
+                break;
+            case 2: 
+                this.#pen.drawBody();
+                break;
+            case 3: 
+                this.#pen.drawArm('left');
+                break;
+            case 4: 
+                this.#pen.drawArm('right');
+                break;
+            case 5: 
+                this.#pen.drawLeg('left');
+                break;
+            case 6: 
+                this.#pen.drawLeg('right');
+                this.#gameOver();
+                break;
+        }
+
+    }
+
+    #checkLetter(letter) {
+        letter = letter === 'c' ? 'c|ç' : letter;
+
+        const regexp = new RegExp(letter, 'g');
+        const matches = this.#word.matchAll(regexp);
+        const lettersList = [...matches];
+
+        if (lettersList.length === 0) {
+            return null;
+        };
+        
+        lettersList.forEach((elem, index, arr) => {
+            arr[index] = [elem[0], elem.index];
+        });
+        
+        return lettersList;
+    }
+
+    #onclickKeyboardButton(event) {
+        const button = event.target;
+        const letter = button.textContent;
+
+        // Verifica se a letra está correta ou errada;
+        let letterAndIndex;
+        if(letterAndIndex = this.#checkLetter(letter)) {
+            Keyboard.showCorrectButton(button);
+            this.#correctLetter(letterAndIndex);
+        } else {
+            Keyboard.showWrongButton(button);
+            this.#wrongLetter();
+        };
+    }
+
+    newGame() {
+        const { category, word } = this.#randomCategoryAndWord(this.#categoriesAndWords);
+        
+        this.#category = category;
+        this.#word = word;
+        this.#stripes = [];
+        this.#hit = 0;
+        this.#error = 0;
+
+        Keyboard.resetKeyboard();
+        this.#screen.clearScreen();
+        this.#pen.drawGallows();
+        this.#addStripeOnScreen(this.#word);
+
+        console.log(`Tema: ${this.#category} e ${this.#word}`);
+    }
+
+    start() {     
+        Keyboard.onclick = this.#onclickKeyboardButton.bind(this);
+        this.newGame();
     }
 }
