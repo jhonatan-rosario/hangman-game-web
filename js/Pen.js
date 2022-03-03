@@ -1,7 +1,7 @@
 export default class Pen {
     #ctx;
     #resolution;
-    color;
+    #color;
 
     constructor(screen, options) {
         this.#ctx = screen.context;
@@ -9,14 +9,21 @@ export default class Pen {
         this.color = options.color || 'black';
     }
 
+    set color(color) { 
+        this.#color = color;
+        this.#ctx.strokeStyle = color;
+     }
+
+     get color() { return this.#color }
+
     #drawLine(x, y, length, thickness, angle = 0) {  
         try {
             const radians = angle * (Math.PI/180);     
             const x2 = x + Math.cos(radians) * length; 
             const y2 = y + Math.sin(radians) * length; 
+            
             this.#ctx.beginPath();
             this.#ctx.lineWidth = thickness;
-            this.#ctx.strokeStyle = this.color;
             this.#ctx.moveTo(x, y);
             this.#ctx.lineTo(x2, y2);
             this.#ctx.stroke();
@@ -31,7 +38,6 @@ export default class Pen {
         try {
             this.#ctx.beginPath();
             this.#ctx.lineWidth = thickness;
-            this.#ctx.strokeStyle = this.color;
             this.#ctx.arc(x, y, radius, 0, 2 * Math.PI);
             this.#ctx.stroke();
         } catch(e) {
@@ -42,7 +48,7 @@ export default class Pen {
         }
     }
 
-    drawGibbet() {
+    drawGallows() {
         const thickness = this.#resolution * 0.02;
         const margin = thickness / 2;
         const baseSize = this.#resolution * 0.8;
