@@ -12,6 +12,7 @@ export default class Hangman {
     #screen = new Screen('canvas', 1000);
     #pen = new Pen(this.#screen, { color: '#0A3871'});
     #categoriesAndWords = JSON.parse(data);
+    #clueSpanElement = document.getElementById('clue');
 
     #randomItem(arr) {
         const number = Math.floor(Math.random() * arr.length);
@@ -65,6 +66,10 @@ export default class Hangman {
         this.#stripes[index].classList.add('letter');
         this.#stripes[index].textContent = letter;
     }
+
+    #showClue(clue) {
+        this.#clueSpanElement.textContent = `Tema: ${clue}`;
+    }   
 
     #correctLetter(letterAndIndex) {
         letterAndIndex.forEach(item => {
@@ -151,8 +156,7 @@ export default class Hangman {
         this.#screen.clearScreen();
         this.#pen.drawGallows();
         this.#addStripeOnScreen(this.#word);
-
-        console.log(`Tema: ${this.#category} e ${this.#word}`);
+        this.#showClue(this.#category);
     }
 
     start() {     
