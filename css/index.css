@@ -1,0 +1,97 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    border: none;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    user-select: none;
+}
+
+html {
+    font-family: 'Inter', sans-serif;
+    font-size: 62.5%;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--background);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1.5rem;
+}
+
+.logo {
+    height: auto;
+    width: 3rem;
+}
+
+.homescreen {
+    min-height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homescreen .button-container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-flow: nowrap column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6rem;
+    font-size: 1.6rem;
+    border-radius: 2rem;
+}
+
+.btn-primary { 
+    background-color: var(--primary);
+    color: var(--text-default); 
+}
+
+.btn-primary:hover { 
+    background-color: var(--primary-hover);
+    color: var(--text-default); 
+}
+
+.btn-secondary {
+    background-color: var(--background);
+    color: var(--primary);
+    border: solid 1.5px var(--primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary);
+    color: var(--text-default);
+    border: solid 1.5px var(--primary);
+}
+
+@media (min-width: 768px) {
+    html { font-size: 65%; }
+}

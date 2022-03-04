@@ -1,0 +1,12 @@
+:root {
+    --background: #F3F5FC;
+    --surface: #FFFFFF;
+    --primary: #0A3871;
+    --primary-hover: #072B61;
+    --text-secondary: #495057;
+    --text-default: #FFFFFF;
+    --correct: #28a745;
+    --wrong: #dc3545;
+    --close-button: #f44336;
+    --close-button-hover: #c62828;
+}
