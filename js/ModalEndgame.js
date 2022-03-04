@@ -1,6 +1,6 @@
 export default class ModalEndgame {
     #modalContainer = document.getElementById('modalEndgameContainer');
-    #closeButton = document.getElementById('closeModalEndgame')
+    #closeButton = document.getElementById('closeModalEndgame');
     #newGameButton = document.getElementById('newGameModalEndgame');
     #tryAgainButton = document.getElementById('tryAgainModalEndgame');
     #imageModal = document.querySelector('.image-modal-endgame');
