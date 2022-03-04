@@ -1,7 +1,7 @@
 import Screen from './Screen.js';
 import Pen from './Pen.js';
 import Keyboard from './Keyboard.js';
-import ModalEndgame from './ModalEndGame.js';
+import ModalEndgame from './ModalEndgame.js';
 import data from '../db/data.js';
 
 export default class Hangman {
