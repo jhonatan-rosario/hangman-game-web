@@ -32,10 +32,12 @@ export default class keyboard {
 
     static showWrongButton(button) {
         button.classList.add('wrong');
+        this.disableButton(button);
     }
 
     static showCorrectButton(button) {
         button.classList.add('correct');
+        this.disableButton(button);
     }
 
     static set onclick(callback) {
