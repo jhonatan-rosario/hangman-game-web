@@ -97,35 +97,60 @@
     color: var(--primary);
 }
 
-.modal-container {
+.modal-endgame-container {
     height: 100vh;
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal {
+.modal-endgame {
     height: 20rem;
     width: 35rem;
     position: relative;
     display: flex;
-    justify-content: center;
+    flex-flow: nowrap column;
+    justify-content: space-between;
     align-items: center;
     align-content: center;
     background-color: var(--surface);
+    border-radius: 5px;
+    padding: 2rem;
+    margin-bottom: 200px;
+}
+.modal-endgame .image-modal-endgame {
+    height: auto;
+    width: 7rem;
+    user-select: none;
+}
+
+.modal-endgame .text-modal-endgame {
     color: var(--primary);
     font-size: 2.4rem;
     font-weight: 600;
-    border-radius: 5px;
-    padding: 2rem;
+    margin-bottom: 20px;
+    user-select: none;
 }
 
-.close-modal {
+.modal-endgame > div {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+}
+
+.modal-endgame > div > button {
+    display: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.close-modal-endgame {
     width: 3.2rem;
     height: 3.2rem;
     position: absolute;
@@ -144,7 +169,7 @@
     transition: 0.3s;
 }
 
-.close-modal:hover {
+.close-modal-endgame:hover {
     background-color: var(--close-button-hover);
     transform: scale(1.1);
     transition: 0.3s;

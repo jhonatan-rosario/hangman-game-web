@@ -1,6 +1,7 @@
 import Screen from './Screen.js';
 import Pen from './Pen.js';
 import Keyboard from './Keyboard.js';
+import ModalEndgame from './ModalEndGame.js';
 import data from '../db/data.js';
 
 export default class Hangman {
@@ -11,6 +12,7 @@ export default class Hangman {
     #error;
     #screen = new Screen('canvas', 1000);
     #pen = new Pen(this.#screen, { color: '#0A3871'});
+    #modalEndgame = new ModalEndgame(this.newGame.bind(this), this.tryAgain.bind(this));
     #categoriesAndWords = JSON.parse(data);
     #clueSpanElement = document.getElementById('clue');
 
@@ -53,12 +55,12 @@ export default class Hangman {
 
     #youWin() {
         Keyboard.disableAllButtons();
-        console.log('You Win');
+        this.#modalEndgame.youWin();
     }
 
     #gameOver() {
         Keyboard.disableAllButtons();
-        console.log('Game Over');
+        this.#modalEndgame.youLose();
     }
 
     #showLetter(letter, index) {
@@ -131,7 +133,7 @@ export default class Hangman {
     #onclickKeyboardButton(event) {
         const button = event.target;
         const letter = button.textContent;
-
+        
         // Verifica se a letra está correta ou errada;
         let letterAndIndex;
         if(letterAndIndex = this.#checkLetter(letter)) {
@@ -141,6 +143,17 @@ export default class Hangman {
             Keyboard.showWrongButton(button);
             this.#wrongLetter();
         };
+    }
+
+    tryAgain() {
+        this.#stripes = [];
+        this.#hit = 0;
+        this.#error = 0;
+
+        Keyboard.resetKeyboard();
+        this.#screen.clearScreen();
+        this.#pen.drawGallows();
+        this.#addStripeOnScreen(this.#word);
     }
 
     newGame() {
