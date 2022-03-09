@@ -1,6 +1,6 @@
 export default `
 {
-    "Cor": [
+    "cor": [
         "verde",
         "azul",
         "vermelho",
@@ -12,7 +12,7 @@ export default `
         "marrom",
         "rosa"
     ],
-    "Animal": [
+    "animal": [
         "galinha",
         "gato",
         "cachorro",
@@ -23,7 +23,7 @@ export default `
         "tartaruga",
         "tubarao"
     ],
-    "Fruta": [
+    "fruta": [
         "melancia",
         "maça",
         "banana",

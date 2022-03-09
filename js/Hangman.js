@@ -3,6 +3,7 @@ import Pen from './Pen.js';
 import Keyboard from './Keyboard.js';
 import ModalEndgame from './ModalEndgame.js';
 import data from '../db/data.js';
+import SessionStorageHangman from './SessionStorageHangman.js';
 
 export default class Hangman {
     #category
@@ -13,7 +14,7 @@ export default class Hangman {
     #screen = new Screen('canvas', 1000);
     #pen = new Pen(this.#screen, { color: '#0A3871'});
     #modalEndgame = new ModalEndgame(this.newGame.bind(this), this.tryAgain.bind(this));
-    #categoriesAndWords = JSON.parse(data);
+    #categoriesAndWords;
     #clueSpanElement = document.getElementById('clue');
 
     #randomItem(arr) {
@@ -158,7 +159,7 @@ export default class Hangman {
 
     newGame() {
         const { category, word } = this.#randomCategoryAndWord(this.#categoriesAndWords);
-        
+
         this.#category = category;
         this.#word = word;
         this.#stripes = [];
@@ -174,6 +175,13 @@ export default class Hangman {
 
     start() {     
         Keyboard.onclick = this.#onclickKeyboardButton.bind(this);
+
+        if (SessionStorageHangman.hasCategories()) {
+            this.#categoriesAndWords = SessionStorageHangman.getAll();
+        } else {
+            this.#categoriesAndWords = JSON.parse(data);
+        }
+
         this.newGame();
     }
 }
