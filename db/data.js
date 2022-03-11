@@ -19,9 +19,9 @@ export default `
         "cavalo",
         "papagaio",
         "onça",
-        "leao",
+        "leão",
         "tartaruga",
-        "tubarao"
+        "tubarão"
     ],
     "fruta": [
         "melancia",
@@ -30,7 +30,7 @@ export default `
         "pera",
         "morango",
         "kiwi",
-        "pessego",
+        "pêssego",
         "laranja",
         "goiaba"
     ]

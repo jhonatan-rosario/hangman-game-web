@@ -12,11 +12,34 @@ export default class SessionStorageHangman {
         return JSON.parse(result);
     }
 
+    static getCategoriesWithWords() {
+        const justCategoriesWithWords = Object.entries(this.getAll()).filter(arrayKeyValue => {
+            return arrayKeyValue[1].length !== 0;
+        });
+        return Object.fromEntries(justCategoriesWithWords);
+    }
+
     static hasCategories() {
         const result = this.getAll();
 
         if (!result) return false;
         if (Object.keys(result).length === 0) return false;
+
+        return true;
+    }
+
+    static hasCategoriesAndWords() {
+        const result = this.getAll();
+
+        if (!result) return false;
+        if (Object.keys(result).length === 0) return false;
+        console.log(Object.entries(result));
+        
+        // Se o array estiver vazio é porque todas as categorias estão vazias
+        const array = Object.entries(result).filter(arrayKeyValue => 
+            arrayKeyValue[1].length !== 0);
+        
+        if (array.length === 0) return false;
 
         return true;
     }
@@ -67,6 +90,7 @@ export default class SessionStorageHangman {
     static removeWord(word, category) {
         const categoriesAndWords = this.getAll();
         const index = categoriesAndWords[category].indexOf(word);
+
         categoriesAndWords[category].splice(index, 1);
         this.#save(categoriesAndWords);
     }

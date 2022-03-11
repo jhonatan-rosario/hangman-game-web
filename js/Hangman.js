@@ -114,9 +114,14 @@ export default class Hangman {
     }
 
     #checkLetter(letter) {
-        letter = letter === 'c' ? 'c|ç' : letter;
+        letter = letter === 'a' ? '[aáàâã]' : letter;
+        letter = letter === 'e' ? '[eéèê]' : letter;
+        letter = letter === 'i' ? '[iíìî]' : letter;
+        letter = letter === 'o' ? '[oóòôõ]' : letter;
+        letter = letter === 'u' ? '[uúùû]' : letter;
+        letter = letter === 'c' ? '[cç]' : letter;
 
-        const regexp = new RegExp(letter, 'g');
+        const regexp = new RegExp(letter, 'gi');
         const matches = this.#word.matchAll(regexp);
         const lettersList = [...matches];
 
@@ -176,8 +181,9 @@ export default class Hangman {
     start() {     
         Keyboard.onclick = this.#onclickKeyboardButton.bind(this);
 
-        if (SessionStorageHangman.hasCategories()) {
-            this.#categoriesAndWords = SessionStorageHangman.getAll();
+        if (SessionStorageHangman.hasCategoriesAndWords()) {
+            this.#categoriesAndWords = SessionStorageHangman.getCategoriesWithWords();
+            console.log(SessionStorageHangman.getCategoriesWithWords());
         } else {
             this.#categoriesAndWords = JSON.parse(data);
         }

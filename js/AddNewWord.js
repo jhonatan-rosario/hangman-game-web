@@ -37,19 +37,16 @@ class AddNewWord {
     static startEvents() {
         this.#addNewCategoryButton.onclick = e => this.#addNewCategory(e);
         this.#removeCategoryButton.onclick = e => this.#removeCategory(e);
-        
         this.#addNewWordButton.onclick = e => this.#addNewWord(e);
-
         this.#categoriesSelect.onchange = () => this.#updateWords();
 
         this.#alert.children['closeAlert'].onclick = () => this.#closeAlert();
     }
 
     static #showAlert(text, success = true) {
-        const closeAlert = this.#alert.children['closeAlert'];
+        const span = this.#alert.childNodes[0];
 
-        this.#alert.textContent = text;
-        this.#alert.appendChild(closeAlert);
+        span.textContent = text;
 
         this.#alert.classList.remove('success');
 
@@ -74,44 +71,37 @@ class AddNewWord {
     }
 
     static #removeAccents(word) {                                                       
-        word = word.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
-        word = word.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
-        word = word.replace(new RegExp('[ÍÌÎ]','gi'), 'i');
-        word = word.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
-        word = word.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
-        word = word.replace(new RegExp('[Ç]','gi'), 'c');
+        word = word.replace(new RegExp('[áàâã]','gi'), 'a');
+        word = word.replace(new RegExp('[éèê]','gi'), 'e');
+        word = word.replace(new RegExp('[íìî]','gi'), 'i');
+        word = word.replace(new RegExp('[óòôõ]','gi'), 'o');
+        word = word.replace(new RegExp('[úùû]','gi'), 'u');
+        word = word.replace(new RegExp('[ç]','gi'), 'c');
         return word.toLowerCase();                 
     }
 
     static #addCategoryOnSelect(value) {
         const option = new Option(value, value);
         option.id = this.#removeAccents(value).trim();
+        option.selected = true;
         this.#categoriesSelect.add(option);
     }
 
-    static #removeCategoryOnSelect(index) {
-        // Não remove o primeiro elemento do select
-        if(index === 0) return false;
-
-        this.#categoriesSelect.remove(index);
-    }
-
-    static #addWordOnUl(value) {
+    static #addWordOnUl(word) {
         const listItem = document.createElement('li');
+        const span = document.createElement('span');
         const button = document.createElement('button');
+
+        span.textContent = word;
 
         button.textContent = 'excluir';
         button.onclick = e => this.#removeWord(e);
 
         listItem.setAttribute('class', 'word');
-        listItem.textContent = value;
+        listItem.appendChild(span);
         listItem.appendChild(button);
 
         this.#addedWords.appendChild(listItem);
-    }
-
-    static #removeWordOnUl(li) {
-        this.#addedWords.removeChild(li);
     }
 
     static #addNewCategory(e) {
@@ -150,10 +140,15 @@ class AddNewWord {
         e.preventDefault();
 
         const optionSelectedIndex = this.#categoriesSelect.selectedIndex;
-        const category = this.#categoriesSelect.item(optionSelectedIndex).value;
+
+        // Não remove o primeiro elemento do select
+        if (optionSelectedIndex === 0) return false;
+
+        const option = this.#categoriesSelect.item(optionSelectedIndex);
+        const category = option.value;
 
         SessionStorageHangman.removeCategory(category);
-        this.#removeCategoryOnSelect(optionSelectedIndex);
+        option.remove();
 
         this.#showAlert('Categoria removida.', true);
 
@@ -167,7 +162,7 @@ class AddNewWord {
         const category = this.#categoriesSelect.selectedOptions[0].value;
 
         if (category === '') {
-            this.#showAlert('Para adicionar uma nova palavra selecione uma categoria primeiro.', false);
+            this.#showAlert('Para adicionar uma nova palavra primeiro selecione uma categoria.', false);
             return false;
         }
 
@@ -175,7 +170,7 @@ class AddNewWord {
             this.#showAlert('Palavra inválida', false);
             return false;
         }
-        console.log(this.#validateWord(word))
+
         SessionStorageHangman.addWord(word, category);
         this.#addWordOnUl(word);
 
@@ -190,11 +185,13 @@ class AddNewWord {
 
         const button = e.target;
         const li = button.parentNode;
-        const word = li.textContent;
+        const span = button.previousElementSibling;
+        const word = span.textContent;
         const category = this.#categoriesSelect.selectedOptions[0].value;
 
         SessionStorageHangman.removeWord(word, category);
-        this.#removeWordOnUl(li);
+
+        li.remove();
 
         this.#showAlert('Palavra removida.', true);
     }

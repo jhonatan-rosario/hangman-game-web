@@ -25,10 +25,9 @@ li {
 
 .newword .alert {
     display: none;
-    position: relative;
-    flex-flow: wrap row;
-    justify-content: start;
-    align-items: center;
+    flex-flow: nowrap row;
+    justify-content: space-between;
+    align-items: flex-start;
     width: 100%;
     padding: 1rem;
     margin-bottom: 1rem;
@@ -41,11 +40,8 @@ li {
 }
 
 .newword .alert button {
-    position: absolute;
     height: 2rem;
     width: 2rem;
-    top: 5px;
-    right: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
