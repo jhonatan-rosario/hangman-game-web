@@ -1,0 +1,222 @@
+.newword {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li {
+    list-style: none;
+}
+
+.newword > div {
+    width: 80%;
+    max-width: 900px;
+    min-height: 80%;
+    display: flex;
+    flex-flow: nowrap column;
+    gap: 10px;
+    background-color: var(--surface);
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 1.5px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.newword .alert {
+    display: none;
+    flex-flow: nowrap row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #f8d7da;
+    background-color: #f8d7da;
+    color: #842029;
+    border-radius: .25rem;
+    font-size: 1.6rem;
+    word-wrap: break-word;
+}
+
+.newword .alert button {
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.newword .alert.success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border-color: transparent;
+}
+
+.newword .alert button .cross {
+    background-color: #000000;
+    height: 1.5rem;
+    position: relative;
+    width: 0.2rem;
+    transform: rotate(45deg);
+    margin-right: 5px;
+    opacity: 0.4;
+}
+
+.newword .alert button .cross:after {
+    background: #000000;
+    content: "";
+    height: 0.2rem;
+    left: -0.65rem;
+    position: absolute;
+    top: 0.65rem;
+    width: 1.5rem;
+  }
+
+  .newword .alert button .cross:hover {
+    opacity: 0.65;
+  }
+
+  .newword .info {
+      display: flex;
+      align-items: center;
+  }
+
+  .newword .info > img {
+      height: auto;
+      width: 1rem;
+      margin-right: 0.2rem;
+  }
+
+.newword .form-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: nowrap column;
+    gap: 10px;
+}
+
+.newword form {
+    flex: 1 1 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.newword form label {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.newword form input, select {
+    height: 5rem;
+    border: 1.5px solid var(--primary);
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+}
+
+.categories-container div {
+    display: flex;
+    gap: 5px;
+}
+
+.categories-container button {
+    width: 5rem;
+    height: 5rem;
+    font-size: 3rem;
+    border-radius: 5px;
+}
+
+.panel {
+    width: 100%;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-in 0s;
+    margin-bottom: 5px;
+}
+
+.panel.collapsed {
+    max-height: 250px;
+    margin-bottom: 10px;
+    transition: max-height 0.5s ease-out 0s;
+}
+
+.panel div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease-in 0s;
+
+}
+
+.panel.collapsed div {
+    max-height: 200px;
+}
+
+.input-new-word-container {
+    /* margin-top: auto; */
+}
+
+.input-new-word-container div {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-new-word-container a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    margin-top: 15px;
+}
+
+.newword aside {
+    flex: 1 1 40%;
+    background-color: var(--background);
+    border: 2px solid var(--primary);
+    border-radius: 5px;
+    min-height: 31rem;
+    overflow-y: auto;
+}
+
+.newword aside > ul {
+    width: 100%;
+    height: 100%;
+}
+
+.newword aside .word {
+    height: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+    background-color: var(--surface);
+}
+
+.newword aside .word > button {
+    background-color: var(--close-button);
+    padding: 5px 7px;
+    color: var(--text-default);
+    border-radius: 5px;
+}
+
+.newword aside .word > button:hover {
+    background-color: var(--close-button-hover);
+}
+
+.newword aside > ul > li:nth-child(even) {
+    background-color: #609ED419;
+}
+
+@media (min-width: 768px) {
+    .newword .form-container {
+        flex-flow: nowrap row;
+    }
+}

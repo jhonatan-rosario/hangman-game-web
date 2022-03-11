@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Jogo da Forca</title>
+
+    <!-- ICON -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/add-new-word.css">
+    <link rel="stylesheet" href="css/colors.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="js/AddNewWord.js" type="module" defer></script>
+</head>
+<body>
+    <header> <a href="https://jogo-da-forca-web.test"> <img class="logo" src="assets/logo.svg" alt="Logo"> </a> </header>
+    <main class="newword">
+        <div>
+            <div class="alert">
+                <span></span>
+                <button id="closeAlert"><span class="cross"></span></button>
+            </div>
+            <div class="form-container">
+                <form>
+                    <div class="categories-container">
+                        <label for="categories">Selecione uma categoria</label>
+                        <div>
+                            <select name="categories" id="categories">
+                                <option value="">Selecione</option>
+                            </select>
+                            <button id="removeCategoryButton" class="btn-primary">-</button>
+                        </div>
+                        <div>
+                            <input type="text" name="newCategoryInput"
+                                placeholder="Digite uma nova categoria">
+                            <button id="addNewCategoryButton" class="btn-primary">+</button>
+                        </div>
+                    </div>
+    
+                    <div class="input-new-word-container">
+                        <label for="newWordInput">Insira uma nova palavra</label>
+                        <div>
+                            <input type="text" name="newWordInput" id="newWordInput"
+                                placeholder="Digite uma nova palavra">
+                            <button id="addNewWordButton" class="btn-primary">Adicionar palavra</button>
+                            <a href="index.html" class="btn-secondary">Voltar</a>
+                        </div>
+                    </div>
+                </form>
+                <aside>
+                    <ul class="added-words">
+                    </ul>
+                </aside>
+            </div>
+            <div class="info">
+                <img src="./assets/info.svg" alt="info">
+                Apenas palavras com ou sem acento, números, espaços e outros caracteres especiais não são aceitos.
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -65,14 +65,14 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 6rem;
-    font-size: 1.6rem;
-    border-radius: 2rem;
 }
 
 .btn-primary { 
     background-color: var(--primary);
-    color: var(--text-default); 
+    color: var(--text-default);
+    height: 5rem;
+    font-size: 1.6rem;
+    border-radius: 6px;
 }
 
 .btn-primary:hover { 
@@ -84,6 +84,9 @@ header {
     background-color: var(--background);
     color: var(--primary);
     border: solid 1.5px var(--primary);
+    height: 5rem;
+    font-size: 1.6rem;
+    border-radius: 6px;
 }
 
 .btn-secondary:hover {
