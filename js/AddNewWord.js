@@ -11,7 +11,7 @@ class AddNewWord {
     static #addedWords = document.querySelector('.added-words');
     static #alert = document.querySelector('.alert');
 
-    static loadCategories() {
+    static #loadCategories() {
         if (SessionStorageHangman.hasCategories()) {
             const categories = SessionStorageHangman.getCategories();
             
@@ -19,6 +19,8 @@ class AddNewWord {
             categories.sort().forEach(category => {
                 this.#addCategoryOnSelect(category);
             });
+
+            this.#updateWords();
         }
         
     }
@@ -35,10 +37,13 @@ class AddNewWord {
     }
 
     static startEvents() {
+
+        window.onload = () => this.#loadCategories();
+
         this.#addNewCategoryButton.onclick = e => this.#addNewCategory(e);
         this.#removeCategoryButton.onclick = e => this.#removeCategory(e);
         this.#addNewWordButton.onclick = e => this.#addNewWord(e);
-        this.#categoriesSelect.onchange = () => this.#updateWords();
+        this.#categoriesSelect.oninput = () => this.#updateWords();
 
         this.#alert.children['closeAlert'].onclick = () => this.#closeAlert();
     }
@@ -199,4 +204,3 @@ class AddNewWord {
 }
 
 AddNewWord.startEvents();
-AddNewWord.loadCategories();
