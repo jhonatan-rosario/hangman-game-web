@@ -46,8 +46,16 @@ header {
     min-height: 90vh;
     width: 100%;
     display: flex;
+    flex-flow: column;
     justify-content: center;
     align-items: center;
+}
+
+.homescreen .title {
+    font-size: 3.5rem;
+    font-weight: bolder;
+    color: var(--primary);
+    margin-bottom: 10rem;
 }
 
 .homescreen .button-container {
