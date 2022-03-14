@@ -33,7 +33,6 @@ export default class SessionStorageHangman {
 
         if (!result) return false;
         if (Object.keys(result).length === 0) return false;
-        console.log(Object.entries(result));
         
         // Se o array estiver vazio é porque todas as categorias estão vazias
         const array = Object.entries(result).filter(arrayKeyValue => 

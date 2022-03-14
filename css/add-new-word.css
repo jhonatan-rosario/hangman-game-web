@@ -158,10 +158,6 @@ li {
     max-height: 200px;
 }
 
-.input-new-word-container {
-    /* margin-top: auto; */
-}
-
 .input-new-word-container div {
     display: flex;
     flex-direction: column;
