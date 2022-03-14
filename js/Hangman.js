@@ -183,7 +183,6 @@ export default class Hangman {
 
         if (SessionStorageHangman.hasCategoriesAndWords()) {
             this.#categoriesAndWords = SessionStorageHangman.getCategoriesWithWords();
-            console.log(SessionStorageHangman.getCategoriesWithWords());
         } else {
             this.#categoriesAndWords = JSON.parse(data);
         }
