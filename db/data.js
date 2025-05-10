@@ -10,7 +10,12 @@ export default `
         "laranja",
         "cinza",
         "marrom",
-        "rosa"
+        "rosa",
+        "roxo",
+        "dourado",
+        "prateado",
+        "bege",
+        "turquesa"
     ],
     "animal": [
         "galinha",
@@ -21,7 +26,13 @@ export default `
         "onça",
         "leão",
         "tartaruga",
-        "tubarão"
+        "tubarão",
+        "elefante",
+        "girafa",
+        "macaco",
+        "coelho",
+        "ovelha",
+        "pato"
     ],
     "fruta": [
         "melancia",
@@ -32,7 +43,49 @@ export default `
         "kiwi",
         "pêssego",
         "laranja",
-        "goiaba"
+        "goiaba",
+        "uva",
+        "manga",
+        "abacaxi",
+        "limão",
+        "coco",
+        "caju"
+    ],
+    "profissao": [
+        "professor",
+        "médico",
+        "engenheiro",
+        "advogado",
+        "programador",
+        "artista",
+        "jornalista",
+        "chef",
+        "policial",
+        "bombeiro"
+    ],
+    "objeto": [
+        "mesa",
+        "cadeira",
+        "livro",
+        "caneta",
+        "computador",
+        "celular",
+        "lâmpada",
+        "chave",
+        "garfo",
+        "prato"
+    ],
+    "lugar": [
+        "casa",
+        "escola",
+        "trabalho",
+        "parque",
+        "praia",
+        "cidade",
+        "país",
+        "montanha",
+        "rio",
+        "lago"
     ]
 }
 `;
